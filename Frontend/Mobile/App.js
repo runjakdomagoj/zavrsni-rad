@@ -1,9 +1,11 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { fetchData } from "./api/api";
+import Map from "./components/Map";
 
 export default function App() {
+  const croatiaMap = require("./assets/hr.json");
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -18,8 +20,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Hello!</Text>
-      <StatusBar style="auto" />
+      <Map geojson={croatiaMap} />
     </View>
   );
 }
