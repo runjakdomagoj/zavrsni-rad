@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useEffect, useState, useRef } from "react";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Map from "./Map";
 import { fetchData } from "../api/api";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const MapScreen = ({ navigation }) => {
   const croatiaMap = require("../assets/hr.json");
   const [data, setData] = useState([]);
+  const mapRef = useRef(null);
 
   useEffect(() => {
     fetchData()
@@ -17,17 +19,33 @@ const MapScreen = ({ navigation }) => {
       });
   }, []);
 
+  // Handles county press and navigates to the county screen
   const handleCountyPress = (countyName) => {
     navigation.navigate("Županija", { countyName });
+  };
+
+  // Handles map reseting with useRef
+  const handleResetMap = () => {
+    if (mapRef.current) {
+      mapRef.current.resetMap();
+    }
   };
 
   return (
     <View style={styles.container}>
       <Map
+        ref={mapRef}
         geojson={croatiaMap}
         navigation={navigation}
         onPress={handleCountyPress}
       />
+      <TouchableOpacity
+        style={styles.resetButton}
+        onPress={handleResetMap}
+        activeOpacity={0.7}
+      >
+        <MaterialIcons name="zoom-out-map" size={48} color="black" />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -36,8 +54,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  resetButton: {
+    position: "absolute",
+    top: 10,
+    right: 10,
   },
 });
 
