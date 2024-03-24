@@ -409,7 +409,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR20", 
-        "name": "Medimurska"
+        "name": "Međimurska"
       }, 
       "id": 1
     }, 
@@ -1057,7 +1057,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR10", 
-        "name": "Viroviticko-Podravska"
+        "name": "Virovitičko-podravska"
       }, 
       "id": 2
     }, 
@@ -1905,7 +1905,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR06", 
-        "name": "Koprivničko-Križevačka"
+        "name": "Koprivničko-križevačka"
       }, 
       "id": 3
     }, 
@@ -3257,7 +3257,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR14", 
-        "name": "Osjecko-Baranjska"
+        "name": "Osječko-baranjska"
       }, 
       "id": 4
     }, 
@@ -5603,7 +5603,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR19", 
-        "name": "Dubrovacko-Neretvanska"
+        "name": "Dubrovačko-neretvanska"
       }, 
       "id": 6
     }, 
@@ -7151,7 +7151,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR03", 
-        "name": "Sisacko-Moslavacka"
+        "name": "Sisačko-moslavačka"
       }, 
       "id": 7
     }, 
@@ -8043,7 +8043,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR12", 
-        "name": "Brodsko-Posavska"
+        "name": "Brodsko-posavska"
       }, 
       "id": 8
     }, 
@@ -9255,7 +9255,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR04", 
-        "name": "Karlovacka"
+        "name": "Karlovačka"
       }, 
       "id": 9
     }, 
@@ -12565,7 +12565,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR16", 
-        "name": "Vukovarsko-Srijemska"
+        "name": "Vukovarsko-srijemska"
       }, 
       "id": 11
     }, 
@@ -14091,7 +14091,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR17", 
-        "name": "Splitsko-Dalmatinska"
+        "name": "Splitsko-dalmatinska"
       }, 
       "id": 12
     }, 
@@ -15407,7 +15407,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR02", 
-        "name": "Krapinsko-Zagorska"
+        "name": "Krapinsko-zagorska"
       }, 
       "id": 14
     }, 
@@ -17095,7 +17095,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR01", 
-        "name": "Zagrebacka"
+        "name": "Zagrebačka"
       }, 
       "id": 15
     }, 
@@ -18981,7 +18981,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR08", 
-        "name": "Primorsko-Goranska"
+        "name": "Primorsko-goranska"
       }, 
       "id": 16
     }, 
@@ -20187,7 +20187,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR15", 
-        "name": "Šibensko-Kninska"
+        "name": "Šibensko-kninska"
       }, 
       "id": 17
     }, 
@@ -21285,7 +21285,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR09", 
-        "name": "Licko-Senjska"
+        "name": "Ličko-senjska"
       }, 
       "id": 18
     }, 
@@ -23765,7 +23765,7 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "HR12", 
-        "name": "Brodsko-Posavska"
+        "name": "Požeško-slavonska županija"
       }, 
       "id": 21
     }

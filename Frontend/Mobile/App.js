@@ -1,35 +1,24 @@
-import { StyleSheet, Text, View } from "react-native";
-import { useEffect, useState } from "react";
-import { fetchData } from "./api/api";
-import Map from "./components/Map";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import MapScreen from "./components/MapScreen";
+import CountyScreen from "./components/CountyScreen";
 
-export default function App() {
-  const croatiaMap = require("./assets/hr.json");
+const Stack = createStackNavigator();
 
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetchData()
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-      });
-  }, []);
-
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Map geojson={croatiaMap} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Karta Hrvatske">
+        <Stack.Screen name="Karta Hrvatske" component={MapScreen} />
+        <Stack.Screen
+          name="Županija"
+          component={CountyScreen}
+          options={{ headerBackTitle: "Natrag" }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
