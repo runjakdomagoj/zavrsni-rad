@@ -1,23 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Map from "./Map";
-import { fetchData } from "../api/api";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
 
 const MapScreen = ({ navigation }) => {
   const croatiaMap = require("../assets/hr.json");
-  const [data, setData] = useState([]);
   const mapRef = useRef(null);
-
-  useEffect(() => {
-    fetchData()
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-      });
-  }, []);
 
   // Handles county press and navigates to the county screen
   const handleCountyPress = (countyName) => {

@@ -6,8 +6,8 @@ import pointInPolygon from "@turf/boolean-point-in-polygon";
 
 const Map = forwardRef(({ onPress }, ref) => {
   const [region, setRegion] = useState({
-    latitude: 45.815399,
-    longitude: 15.966568,
+    latitude: 44.4737849,
+    longitude: 16.4688717,
     latitudeDelta: 8,
     longitudeDelta: 8,
   });
@@ -29,8 +29,8 @@ const Map = forwardRef(({ onPress }, ref) => {
   useImperativeHandle(ref, () => ({
     resetMap: () => {
       const initialRegion = {
-        latitude: 45.815399,
-        longitude: 15.966568,
+        latitude: 44.4737849,
+        longitude: 16.4688717,
         latitudeDelta: 8,
         longitudeDelta: 8,
       };
@@ -49,7 +49,7 @@ const Map = forwardRef(({ onPress }, ref) => {
         onRegionChangeComplete={(region) => setRegion(region)}
         onPress={handleMapPress}
       >
-        <Geojson geojson={hrGeojson} strokeColor="#fff" fillColor="#FF6D6A" />
+        <Geojson geojson={hrGeojson} strokeColor="#fff" fillColor="#ff6d6a" />
       </MapView>
     </View>
   );
