@@ -6,71 +6,72 @@ import { fetchData } from "../api/api";
 
 const CountyScreen = ({ route }) => {
   const { countyName } = route.params;
-  const [populationData, setPopulationData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [countyData, setCountyData] = useState(null);
 
   useEffect(() => {
-    const fetchPopulationData = async () => {
+    const fetchCountyData = async () => {
       try {
         const data = await fetchData();
-        // Finds data for the selected county
-        const countyData = data.find(
-          (item) => item["Naziv županije"] === countyName
+        const selectedCountyData = data.find(
+          (item) => item.countyName === countyName
         );
-        // Converts data to an array consisting of year and population pairs
-        const countyPopulationData = Object.entries(countyData)
-          .filter(([key]) => !isNaN(key)) // Filters out non-year keys
-          .map(([year, population]) => ({ year: Number(year), population }));
-        setPopulationData(countyPopulationData);
-        // Sets loading to false once data is fetched
-        setLoading(false);
+        setCountyData(selectedCountyData);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
 
-    fetchPopulationData();
+    fetchCountyData();
   }, [countyName]);
 
   return (
     <View style={styles.container}>
-      <Text>{countyName}</Text>
-      {loading ? (
-        <ActivityIndicator size="large" color="black" />
-      ) : (
-        <LineChart
-          data={{
-            labels: populationData.map(({ year }) => year.toString()),
-            datasets: [
-              {
-                data: populationData.map(({ population }) => population),
+      {countyData ? (
+        <>
+          <Text>{countyData.countyName}</Text>
+          <Text>Gustoća naseljenosti: {countyData.populationDensity}</Text>
+          <Text>Površina: {countyData.area}</Text>
+          <Text>Sjedište županije: {countyData.countySeat}</Text>
+          <LineChart
+            data={{
+              labels: countyData.populationData.map(({ year }) =>
+                year.toString()
+              ),
+              datasets: [
+                {
+                  data: countyData.populationData.map(
+                    ({ population }) => population
+                  ),
+                },
+              ],
+            }}
+            width={Dimensions.get("window").width - 16}
+            height={230}
+            chartConfig={{
+              backgroundColor: "#fff",
+              backgroundGradientFrom: "#fff",
+              backgroundGradientTo: "#fff",
+              decimalPlaces: 0,
+              color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
+              style: {
+                borderRadius: 16,
               },
-            ],
-          }}
-          width={Dimensions.get("window").width - 16}
-          height={230}
-          chartConfig={{
-            backgroundColor: "#fff",
-            backgroundGradientFrom: "#fff",
-            backgroundGradientTo: "#fff",
-            decimalPlaces: 0,
-            color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
-            labelColor: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-            style: {
+              propsForDots: {
+                r: "4",
+                strokeWidth: "1",
+                stroke: "blue",
+              },
+            }}
+            bezier
+            style={{
+              marginVertical: 16,
               borderRadius: 16,
-            },
-            propsForDots: {
-              r: "4",
-              strokeWidth: "1",
-              stroke: "blue",
-            },
-          }}
-          bezier
-          style={{
-            marginVertical: 16,
-            borderRadius: 16,
-          }}
-        />
+            }}
+          />
+        </>
+      ) : (
+        <ActivityIndicator size="large" color="black" />
       )}
     </View>
   );
