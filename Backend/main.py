@@ -20,6 +20,7 @@ def create_db():
                     sjediste TEXT,
                     povrsina REAL,
                     gustoca REAL,
+                    o_zupaniji TEXT,
                     godina_1857 INTEGER,
                     godina_1900 INTEGER,
                     godina_1931 INTEGER,
@@ -62,7 +63,7 @@ def get_data():
     cursor.execute("SELECT * FROM podaci")
     data = cursor.fetchall()
 
-    keys = ["Naziv županije", "Sjedište županije", "Površina", "Gustoča naseljenosti",
+    keys = ["Naziv županije", "Sjedište županije", "Površina", "Gustoća naseljenosti", "O županiji",
             "1857.", "1900.", "1931.", "1961.", "1991.", "2001.", "2011.", "2021."]
     result = []
     for row in data:

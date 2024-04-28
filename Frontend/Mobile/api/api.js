@@ -16,6 +16,7 @@ export const fetchData = async () => {
       const populationDensity = item["Gustoća naseljenosti"];
       const area = item["Površina"];
       const countySeat = item["Sjedište županije"];
+      const countyDescription = item["O županiji"]
 
       return {
         countyName,
@@ -23,6 +24,7 @@ export const fetchData = async () => {
         populationDensity,
         area,
         countySeat,
+        countyDescription
       };
     });
     return restructuredData;
