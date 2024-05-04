@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MapScreen from "./components/MapScreen";
 import CountyScreen from "./components/CountyScreen";
 import HomeScreen from "./components/HomeScreen";
+import CountryScreen from "./components/CountryScreen";
 
 const Stack = createStackNavigator();
 
@@ -13,7 +14,12 @@ const App = () => {
       <Stack.Navigator initialRouteName="Početni zaslon">
         <Stack.Screen name="Početni zaslon" component={HomeScreen} />
         <Stack.Screen
-          name="Karta Hrvatske"
+          name="Podaci o državi"
+          component={CountryScreen}
+          options={{ headerBackTitle: "Natrag" }}
+        />
+        <Stack.Screen
+          name="Podaci o županijama"
           component={MapScreen}
           options={{ headerBackTitle: "Natrag" }}
         />

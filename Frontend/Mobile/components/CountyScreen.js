@@ -12,7 +12,8 @@ const CountyScreen = ({ route }) => {
     const fetchCountyData = async () => {
       try {
         const data = await fetchData();
-        const selectedCountyData = data.find(
+        const counties = data[0];
+        const selectedCountyData = counties.find(
           (item) => item.countyName === countyName
         );
         setCountyData(selectedCountyData);

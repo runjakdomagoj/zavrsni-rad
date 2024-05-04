@@ -5,8 +5,12 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button
-        title="Prikaži kartu"
-        onPress={() => navigation.navigate("Karta Hrvatske")}
+        title="Podaci o državi"
+        onPress={() => navigation.navigate("Podaci o državi")}
+      />
+      <Button
+        title="Interaktivna karta sa županijama"
+        onPress={() => navigation.navigate("Podaci o županijama")}
       />
     </View>
   );
