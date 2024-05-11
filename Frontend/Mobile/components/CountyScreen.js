@@ -34,6 +34,7 @@ const CountyScreen = ({ route }) => {
           <Text>Površina: {countyData.area}</Text>
           <Text>Sjedište županije: {countyData.countySeat}</Text>
           <Text>O županiji: {countyData.countyDescription}</Text>
+          
           <LineChart
             data={{
               labels: countyData.populationData.map(({ year }) =>
