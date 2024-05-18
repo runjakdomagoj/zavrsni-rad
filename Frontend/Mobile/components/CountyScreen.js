@@ -1,8 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  Image,
+  ScrollView,
+} from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
 import { fetchData } from "../api/api";
+import images from "../assets/images/Zupanije/images";
+
+// Function for removing diacritics and making the countyName compatible with image names
+const removeDiacritics = (str) => {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .replace(/š/g, "s")
+    .replace(/Š/g, "S")
+    .replace(/č/g, "c")
+    .replace(/Č/g, "C")
+    .replace(/ć/g, "c")
+    .replace(/Ć/g, "C")
+    .replace(/ž/g, "z")
+    .replace(/Ž/g, "Z")
+    .replace(/dž/g, "dz")
+    .replace(/Dž/g, "Dz");
+};
 
 const CountyScreen = ({ route }) => {
   const { countyName } = route.params;
@@ -25,58 +52,84 @@ const CountyScreen = ({ route }) => {
     fetchCountyData();
   }, [countyName]);
 
+  // Makes countyName and image name compatible with each other
+  const normalizedCountyName = removeDiacritics(
+    countyName.replace(/\s+/g, "_").replace(/-/g, "_").toLowerCase()
+  );
+
+  // Finds matching key in the images object
+  const countyImagesKey = Object.keys(images).find((key) => {
+    const normalizedKey = removeDiacritics(
+      key.replace(/^\d+_/, "").toLowerCase()
+    );
+    return normalizedKey === normalizedCountyName;
+  });
+
+  // If key is found, gets the images back, otherwise null
+  const countyImages = countyImagesKey ? images[countyImagesKey] : null;
+
   return (
-    <View style={styles.container}>
-      {countyData ? (
-        <>
-          <Text>{countyData.countyName}</Text>
-          <Text>Gustoća naseljenosti: {countyData.populationDensity}</Text>
-          <Text>Površina: {countyData.area}</Text>
-          <Text>Sjedište županije: {countyData.countySeat}</Text>
-          <Text>O županiji: {countyData.countyDescription}</Text>
-          
-          <LineChart
-            data={{
-              labels: countyData.populationData.map(({ year }) =>
-                year.toString()
-              ),
-              datasets: [
-                {
-                  data: countyData.populationData.map(
-                    ({ population }) => population
-                  ),
+    <ScrollView>
+      <View style={styles.container}>
+        {countyData ? (
+          <>
+            {countyImages ? (
+              <>
+                <Image source={countyImages.grb} style={styles.image} />
+                <Image source={countyImages.zastava} style={styles.image} />
+              </>
+            ) : (
+              <Text>Nema dostupnih slika za ovu županiju.</Text>
+            )}
+            <Text>{countyData.countyName}</Text>
+            <Text>Gustoća naseljenosti: {countyData.populationDensity}</Text>
+            <Text>Površina: {countyData.area}</Text>
+            <Text>Sjedište županije: {countyData.countySeat}</Text>
+            <Text>O županiji: {countyData.countyDescription}</Text>
+
+            <LineChart
+              data={{
+                labels: countyData.populationData.map(({ year }) =>
+                  year.toString()
+                ),
+                datasets: [
+                  {
+                    data: countyData.populationData.map(
+                      ({ population }) => population
+                    ),
+                  },
+                ],
+              }}
+              width={Dimensions.get("window").width - 16}
+              height={230}
+              chartConfig={{
+                backgroundColor: "#fff",
+                backgroundGradientFrom: "#fff",
+                backgroundGradientTo: "#fff",
+                decimalPlaces: 0,
+                color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
+                style: {
+                  borderRadius: 16,
                 },
-              ],
-            }}
-            width={Dimensions.get("window").width - 16}
-            height={230}
-            chartConfig={{
-              backgroundColor: "#fff",
-              backgroundGradientFrom: "#fff",
-              backgroundGradientTo: "#fff",
-              decimalPlaces: 0,
-              color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-              style: {
+                propsForDots: {
+                  r: "4",
+                  strokeWidth: "1",
+                  stroke: "blue",
+                },
+              }}
+              bezier
+              style={{
+                marginVertical: 16,
                 borderRadius: 16,
-              },
-              propsForDots: {
-                r: "4",
-                strokeWidth: "1",
-                stroke: "blue",
-              },
-            }}
-            bezier
-            style={{
-              marginVertical: 16,
-              borderRadius: 16,
-            }}
-          />
-        </>
-      ) : (
-        <ActivityIndicator size="large" color="black" />
-      )}
-    </View>
+              }}
+            />
+          </>
+        ) : (
+          <ActivityIndicator size="large" color="black" />
+        )}
+      </View>
+    </ScrollView>
   );
 };
 
@@ -86,6 +139,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 10,
   },
 });
 

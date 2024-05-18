@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator, Image } from "react-native";
 import { fetchData } from "../api/api";
 import { ScrollView } from "react-native-gesture-handler";
 import { LineChart } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
+import croatiaCrest from "../assets/images/Drzava/hrvatska_grb.png"
+import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png"
 
 const CountryScreen = () => {
   const [countryData, setCountryData] = useState(null);
@@ -27,6 +29,8 @@ const CountryScreen = () => {
       <View style={styles.container}>
         {countryData ? (
           <>
+            <Image source={croatiaCrest} />
+            <Image source={croatiaFlag} />
             <Text>{countryData[0].countryName}</Text>
             <Text>{countryData[0].populationDensity}</Text>
             <Text>{countryData[0].area}</Text>

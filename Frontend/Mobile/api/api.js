@@ -26,7 +26,7 @@ export const fetchData = async () => {
           populationDensity,
           area,
           countySeat,
-          countyDescription
+          countyDescription,
         };
       });
 
