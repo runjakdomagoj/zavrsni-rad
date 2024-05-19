@@ -7,10 +7,9 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { LineChart } from "react-native-chart-kit";
-import { Dimensions } from "react-native";
 import { fetchData } from "../api/api";
 import images from "../assets/images/Zupanije/images";
+import Graph from "../components/Graph";
 
 // Function for removing diacritics and making the countyName compatible with image names
 const removeDiacritics = (str) => {
@@ -87,7 +86,7 @@ const CountyScreen = ({ route }) => {
             <Text>Sjedište županije: {countyData.countySeat}</Text>
             <Text>O županiji: {countyData.countyDescription}</Text>
 
-            <LineChart
+            <Graph
               data={{
                 labels: countyData.populationData.map(({ year }) =>
                   year.toString()
@@ -99,29 +98,6 @@ const CountyScreen = ({ route }) => {
                     ),
                   },
                 ],
-              }}
-              width={Dimensions.get("window").width - 16}
-              height={230}
-              chartConfig={{
-                backgroundColor: "#fff",
-                backgroundGradientFrom: "#fff",
-                backgroundGradientTo: "#fff",
-                decimalPlaces: 0,
-                color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
-                labelColor: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-                style: {
-                  borderRadius: 16,
-                },
-                propsForDots: {
-                  r: "4",
-                  strokeWidth: "1",
-                  stroke: "blue",
-                },
-              }}
-              bezier
-              style={{
-                marginVertical: 16,
-                borderRadius: 16,
               }}
             />
           </>

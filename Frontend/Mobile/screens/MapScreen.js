@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import Map from "./Map";
+import Map from "../components/Map";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const MapScreen = ({ navigation }) => {

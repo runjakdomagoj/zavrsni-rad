@@ -1,10 +1,10 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import MapScreen from "./components/MapScreen";
-import CountyScreen from "./components/CountyScreen";
-import HomeScreen from "./components/HomeScreen";
-import CountryScreen from "./components/CountryScreen";
+import MapScreen from "./screens/MapScreen";
+import CountyScreen from "./screens/CountyScreen";
+import HomeScreen from "./screens/HomeScreen";
+import CountryScreen from "./screens/CountryScreen";
 
 const Stack = createStackNavigator();
 

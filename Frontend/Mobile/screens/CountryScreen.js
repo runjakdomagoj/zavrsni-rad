@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, ActivityIndicator, Image } from "react-native";
 import { fetchData } from "../api/api";
 import { ScrollView } from "react-native-gesture-handler";
-import { LineChart } from "react-native-chart-kit";
-import { Dimensions } from "react-native";
-import croatiaCrest from "../assets/images/Drzava/hrvatska_grb.png"
-import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png"
+import croatiaCrest from "../assets/images/Drzava/hrvatska_grb.png";
+import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png";
+import Graph from "../components/Graph";
 
 const CountryScreen = () => {
   const [countryData, setCountryData] = useState(null);
@@ -29,8 +28,8 @@ const CountryScreen = () => {
       <View style={styles.container}>
         {countryData ? (
           <>
-            <Image source={croatiaCrest} />
-            <Image source={croatiaFlag} />
+            <Image source={croatiaCrest} style={styles.image} />
+            <Image source={croatiaFlag} style={styles.image} />
             <Text>{countryData[0].countryName}</Text>
             <Text>{countryData[0].populationDensity}</Text>
             <Text>{countryData[0].area}</Text>
@@ -43,7 +42,7 @@ const CountryScreen = () => {
             <Text>{countryData[0].religion}</Text>
             <Text>{countryData[0].climate}</Text>
 
-            <LineChart
+            <Graph
               data={{
                 labels: countryData[0].populationData.map(({ year }) =>
                   year.toString()
@@ -55,29 +54,6 @@ const CountryScreen = () => {
                     ),
                   },
                 ],
-              }}
-              width={Dimensions.get("window").width - 16}
-              height={230}
-              chartConfig={{
-                backgroundColor: "#fff",
-                backgroundGradientFrom: "#fff",
-                backgroundGradientTo: "#fff",
-                decimalPlaces: 0,
-                color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
-                labelColor: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-                style: {
-                  borderRadius: 16,
-                },
-                propsForDots: {
-                  r: "4",
-                  strokeWidth: "1",
-                  stroke: "blue",
-                },
-              }}
-              bezier
-              style={{
-                marginVertical: 16,
-                borderRadius: 16,
               }}
             />
           </>
@@ -95,6 +71,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 10,
   },
 });
 
