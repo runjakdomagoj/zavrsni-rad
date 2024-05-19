@@ -1,15 +1,15 @@
 import React, { useState, forwardRef, useImperativeHandle } from "react";
 import { View, StyleSheet } from "react-native";
 import MapView, { Geojson } from "react-native-maps";
-import hrGeojson from "../assets/hr.json";
+import hrGeojson from "../assets/geojson/hr.json";
 import pointInPolygon from "@turf/boolean-point-in-polygon";
 
 const Map = forwardRef(({ onPress }, ref) => {
   const [region, setRegion] = useState({
     latitude: 44.4737849,
     longitude: 16.4688717,
-    latitudeDelta: 8,
-    longitudeDelta: 8,
+    latitudeDelta: 5,
+    longitudeDelta: 6,
   });
 
   // Handles map press and locates where each county is based on the coordinates in geojson file
@@ -31,8 +31,8 @@ const Map = forwardRef(({ onPress }, ref) => {
       const initialRegion = {
         latitude: 44.4737849,
         longitude: 16.4688717,
-        latitudeDelta: 8,
-        longitudeDelta: 8,
+        latitudeDelta: 5,
+        longitudeDelta: 6,
       };
       mapRef.current.animateToRegion(initialRegion, 1000);
     },

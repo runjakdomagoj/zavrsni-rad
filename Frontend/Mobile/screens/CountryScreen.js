@@ -25,11 +25,11 @@ const CountryScreen = () => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View className="bg-backgroundColor" style={styles.container}>
         {countryData ? (
           <>
-            <Image source={croatiaCrest} style={styles.image} />
-            <Image source={croatiaFlag} style={styles.image} />
+            <Image source={croatiaCrest} style={styles.imageCrest} />
+            <Image source={croatiaFlag} style={styles.imageFlag} />
             <Text>{countryData[0].countryName}</Text>
             <Text>{countryData[0].populationDensity}</Text>
             <Text>{countryData[0].area}</Text>
@@ -68,12 +68,16 @@ const CountryScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
   },
-  image: {
+  imageCrest: {
     width: 100,
+    height: 150,
+    margin: 10,
+  },
+  imageFlag: {
+    width: 150,
     height: 100,
     margin: 10,
   },

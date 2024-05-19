@@ -4,7 +4,6 @@ import Map from "../components/Map";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const MapScreen = ({ navigation }) => {
-  const croatiaMap = require("../assets/hr.json");
   const mapRef = useRef(null);
 
   // Handles county press and navigates to the county screen
@@ -12,7 +11,7 @@ const MapScreen = ({ navigation }) => {
     navigation.navigate("Županija", { countyName });
   };
 
-  // Handles map reseting with useRef
+  // Handles map resetting with useRef
   const handleResetMap = () => {
     if (mapRef.current) {
       mapRef.current.resetMap();
@@ -23,8 +22,6 @@ const MapScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Map
         ref={mapRef}
-        geojson={croatiaMap}
-        navigation={navigation}
         onPress={handleCountyPress}
       />
       <TouchableOpacity
@@ -41,7 +38,6 @@ const MapScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
   },
   resetButton: {
     position: "absolute",

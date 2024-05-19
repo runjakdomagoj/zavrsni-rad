@@ -69,7 +69,7 @@ const CountyScreen = ({ route }) => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View className="bg-backgroundColor" style={styles.container}>
         {countyData ? (
           <>
             {countyImages ? (
