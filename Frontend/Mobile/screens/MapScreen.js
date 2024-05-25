@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import Map from "../components/Map";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -19,13 +19,10 @@ const MapScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Map
-        ref={mapRef}
-        onPress={handleCountyPress}
-      />
+    <View className="flex-1">
+      <Map ref={mapRef} onPress={handleCountyPress} />
       <TouchableOpacity
-        style={styles.resetButton}
+        className="absolute top-3 right-3"
         onPress={handleResetMap}
         activeOpacity={0.7}
       >
@@ -34,16 +31,5 @@ const MapScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  resetButton: {
-    position: "absolute",
-    top: 10,
-    right: 10,
-  },
-});
 
 export default MapScreen;

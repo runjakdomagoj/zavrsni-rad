@@ -58,8 +58,6 @@ const Map = forwardRef(({ onPress }, ref) => {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: "flex-end",
-    alignItems: "center",
   },
   map: {
     ...StyleSheet.absoluteFillObject,
