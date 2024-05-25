@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  Image,
-  ScrollView,
-} from "react-native";
+import { View, Text, ActivityIndicator, Image, ScrollView } from "react-native";
 import { fetchData } from "../api/api";
 import images from "../assets/images/Zupanije/images";
 import Graph from "../components/Graph";
+import TextBox from "../components/TextBox";
 
 // Function for removing diacritics and making the countyName compatible with image names
 const removeDiacritics = (str) => {
@@ -67,24 +61,43 @@ const CountyScreen = ({ route }) => {
   // If key is found, gets the images back, otherwise null
   const countyImages = countyImagesKey ? images[countyImagesKey] : null;
 
+  const textData = [
+    { title: "Gustoća naseljenosti", textKey: "populationDensity" },
+    { title: "Površina", textKey: "area" },
+    { title: "Sjedište županije", textKey: "countySeat" },
+    { title: "O županiji", textKey: "countyDescription" },
+  ];
+
   return (
     <ScrollView>
-      <View className="bg-backgroundColor" style={styles.container}>
+      <View className="bg-white flex-1  p-4">
         {countyData ? (
           <>
-            {countyImages ? (
-              <>
-                <Image source={countyImages.grb} style={styles.image} />
-                <Image source={countyImages.zastava} style={styles.image} />
-              </>
-            ) : (
-              <Text>Nema dostupnih slika za ovu županiju.</Text>
-            )}
-            <Text>{countyData.countyName}</Text>
-            <Text>Gustoća naseljenosti: {countyData.populationDensity}</Text>
-            <Text>Površina: {countyData.area}</Text>
-            <Text>Sjedište županije: {countyData.countySeat}</Text>
-            <Text>O županiji: {countyData.countyDescription}</Text>
+            <View className="justify-center items-center">
+              <Text className="text-xl font-bold mb-2">
+                {countyData.countyName} županija
+              </Text>
+              {countyImages ? (
+                <>
+                  <Image source={countyImages.grb} className="w-24 h-32 m-2" />
+                  <Image
+                    source={countyImages.zastava}
+                    className="w-32 h-16 m-2"
+                  />
+                </>
+              ) : (
+                <Text className="text-base text-center">
+                  Nema dostupnih slika za ovu županiju.
+                </Text>
+              )}
+            </View>
+            {textData.map((item, index) => (
+              <TextBox
+                key={index}
+                title={item.title}
+                text={countyData[item.textKey]}
+              />
+            ))}
 
             <Graph
               data={{
@@ -108,19 +121,5 @@ const CountyScreen = ({ route }) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    width: 100,
-    height: 100,
-    margin: 10,
-  },
-});
 
 export default CountyScreen;

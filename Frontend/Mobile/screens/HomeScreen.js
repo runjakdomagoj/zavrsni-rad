@@ -4,7 +4,7 @@ import TitleButton from "../components/TitleButton";
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <View className="bg-white flex-1 justify-center items-center p-4">
       <TitleButton
         buttonTitle="Podaci o državi"
         navigationTitle="Podaci o državi"
@@ -18,13 +18,5 @@ const HomeScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
 export default HomeScreen;

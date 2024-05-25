@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ActivityIndicator, Image } from "react-native";
+import { View, Text, ActivityIndicator, Image } from "react-native";
 import { fetchData } from "../api/api";
 import { ScrollView } from "react-native-gesture-handler";
 import croatiaCrest from "../assets/images/Drzava/hrvatska_grb.png";
 import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png";
 import Graph from "../components/Graph";
+import TextBox from "../components/TextBox";
 
 const CountryScreen = () => {
   const [countryData, setCountryData] = useState(null);
@@ -23,24 +24,38 @@ const CountryScreen = () => {
     fetchCountryData();
   }, []);
 
+  const textData = [
+    { title: "Gustoća naseljenosti", textKey: "populationDensity" },
+    { title: "Površina", textKey: "area" },
+    { title: "Valuta", textKey: "currency" },
+    { title: "O državi", textKey: "countryDescription" },
+    { title: "Povijest", textKey: "history" },
+    { title: "Politički ustroj", textKey: "politicalSystem" },
+    { title: "Državni simboli", textKey: "nationalSymbols" },
+    { title: "Jezik", textKey: "language" },
+    { title: "Religija", textKey: "religion" },
+    { title: "Klima", textKey: "climate" },
+  ];
+
   return (
     <ScrollView>
-      <View className="bg-backgroundColor" style={styles.container}>
+      <View className="bg-white flex-1 p-4">
         {countryData ? (
           <>
-            <Image source={croatiaCrest} style={styles.imageCrest} />
-            <Image source={croatiaFlag} style={styles.imageFlag} />
-            <Text>{countryData[0].countryName}</Text>
-            <Text>{countryData[0].populationDensity}</Text>
-            <Text>{countryData[0].area}</Text>
-            <Text>{countryData[0].countryDescription}</Text>
-            <Text>{countryData[0].history}</Text>
-            <Text>{countryData[0].politicalSystem}</Text>
-            <Text>{countryData[0].nationalSymbols}</Text>
-            <Text>{countryData[0].currency}</Text>
-            <Text>{countryData[0].language}</Text>
-            <Text>{countryData[0].religion}</Text>
-            <Text>{countryData[0].climate}</Text>
+            <View className="justify-center items-center">
+              <Text className="text-xl font-bold mb-2">
+                {countryData[0].countryName}
+              </Text>
+              <Image source={croatiaCrest} className="w-24 h-32 m-2" />
+              <Image source={croatiaFlag} className="w-32 h-16 m-2" />
+            </View>
+            {textData.map((item, index) => (
+              <TextBox
+                key={index}
+                title={item.title}
+                text={countryData[0][item.textKey]}
+              />
+            ))}
 
             <Graph
               data={{
@@ -64,23 +79,5 @@ const CountryScreen = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  imageCrest: {
-    width: 100,
-    height: 150,
-    margin: 10,
-  },
-  imageFlag: {
-    width: 150,
-    height: 100,
-    margin: 10,
-  },
-});
 
 export default CountryScreen;

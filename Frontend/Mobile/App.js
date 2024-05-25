@@ -12,21 +12,25 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Početni zaslon">
-        <Stack.Screen name="Početni zaslon" component={HomeScreen} />
+        <Stack.Screen
+          name="Početni zaslon"
+          component={HomeScreen}
+          options={{ headerTitle: "" }}
+        />
         <Stack.Screen
           name="Podaci o državi"
           component={CountryScreen}
-          options={{ headerBackTitle: "Natrag" }}
+          options={{ headerBackTitle: "Natrag", headerTitle: "" }}
         />
         <Stack.Screen
           name="Podaci o županijama"
           component={MapScreen}
-          options={{ headerBackTitle: "Natrag" }}
+          options={{ headerBackTitle: "Natrag", headerTitle: "" }}
         />
         <Stack.Screen
           name="Županija"
           component={CountyScreen}
-          options={{ headerBackTitle: "Natrag" }}
+          options={{ headerBackTitle: "Natrag", headerTitle: "" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
