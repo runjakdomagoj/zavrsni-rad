@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, ActivityIndicator, Image } from "react-native";
+import { View, Text, ActivityIndicator, Image, ScrollView } from "react-native";
 import { fetchData } from "../api/api";
-import { ScrollView } from "react-native-gesture-handler";
 import croatiaCrest from "../assets/images/Drzava/hrvatska_grb.png";
 import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png";
 import Graph from "../components/Graph";
@@ -53,7 +52,12 @@ const CountryScreen = () => {
               <TextBox
                 key={index}
                 title={item.title}
-                text={countryData[0][item.textKey]}
+                text={
+                  item.textKey === "area" ||
+                  item.textKey === "populationDensity"
+                    ? `${countryData[0][item.textKey]} km²`
+                    : countryData[0][item.textKey]
+                }
               />
             ))}
 

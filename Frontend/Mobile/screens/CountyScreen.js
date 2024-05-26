@@ -95,7 +95,12 @@ const CountyScreen = ({ route }) => {
               <TextBox
                 key={index}
                 title={item.title}
-                text={countyData[item.textKey]}
+                text={
+                  item.textKey === "area" ||
+                  item.textKey === "populationDensity"
+                    ? `${countyData[item.textKey]} km²`
+                    : countyData[item.textKey]
+                }
               />
             ))}
 

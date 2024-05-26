@@ -6,7 +6,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View className="bg-white flex-1 justify-center items-center p-4">
       <TitleButton
-        buttonTitle="Podaci o državi"
+        buttonTitle="Hrvatska"
         navigationTitle="Podaci o državi"
         navigation={navigation}
       />
