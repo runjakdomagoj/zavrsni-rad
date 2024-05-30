@@ -21,7 +21,7 @@ const TextBox = ({ title, text }) => {
           )}
         </TouchableOpacity>
       </View>
-      {showText && <Text className="text-base">{text}</Text>}
+      {showText && <Text className="text-base font-medium">{text}</Text>}
     </View>
   );
 };

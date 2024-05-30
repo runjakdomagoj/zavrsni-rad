@@ -15,22 +15,34 @@ const App = () => {
         <Stack.Screen
           name="Početni zaslon"
           component={HomeScreen}
-          options={{ headerTitle: "" }}
+          options={{ headerTitle: "", headerShadowVisible: false }}
         />
         <Stack.Screen
           name="Podaci o državi"
           component={CountryScreen}
-          options={{ headerBackTitle: "Natrag", headerTitle: "" }}
+          options={{
+            headerBackTitle: "Natrag",
+            headerTitle: "",
+            headerShadowVisible: false,
+          }}
         />
         <Stack.Screen
           name="Podaci o županijama"
           component={MapScreen}
-          options={{ headerBackTitle: "Natrag", headerTitle: "" }}
+          options={{
+            headerBackTitle: "Natrag",
+            headerTitle: "",
+            headerShadowVisible: false,
+          }}
         />
         <Stack.Screen
           name="Županija"
           component={CountyScreen}
-          options={{ headerBackTitle: "Natrag", headerTitle: "" }}
+          options={{
+            headerBackTitle: "Natrag",
+            headerTitle: "",
+            headerShadowVisible: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

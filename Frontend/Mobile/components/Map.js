@@ -49,7 +49,7 @@ const Map = forwardRef(({ onPress }, ref) => {
         onRegionChangeComplete={(region) => setRegion(region)}
         onPress={handleMapPress}
       >
-        <Geojson geojson={hrGeojson} strokeColor="#fff" fillColor="#ff6d6a" />
+        <Geojson geojson={hrGeojson} strokeColor="#FFF" fillColor="#FF6D6A" />
       </MapView>
     </View>
   );
