@@ -42,11 +42,11 @@ const CountryScreen = () => {
         {countryData ? (
           <>
             <View className="justify-center items-center">
-              <Text className="text-xl font-bold mb-2">
+              <Text className="text-2xl font-bold mb-8">
                 {countryData[0].countryName}
               </Text>
-              <Image source={croatiaCrest} className="w-24 h-32 m-2" />
-              <Image source={croatiaFlag} className="w-32 h-16 m-2" />
+              <Image source={croatiaCrest} className="w-24 h-32 mb-8" />
+              <Image source={croatiaFlag} className="w-32 h-16 mb-8" />
             </View>
             {textData.map((item, index) => (
               <TextBox

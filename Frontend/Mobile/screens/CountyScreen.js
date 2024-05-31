@@ -70,19 +70,19 @@ const CountyScreen = ({ route }) => {
 
   return (
     <ScrollView>
-      <View className="bg-white flex-1  p-4">
+      <View className="bg-white flex-1 p-4">
         {countyData ? (
           <>
             <View className="justify-center items-center">
-              <Text className="text-xl font-bold mb-2">
+              <Text className="text-2xl font-bold mb-8">
                 {countyData.countyName} županija
               </Text>
               {countyImages ? (
                 <>
-                  <Image source={countyImages.grb} className="w-24 h-32 m-2" />
+                  <Image source={countyImages.grb} className="w-24 h-32 mb-8" />
                   <Image
                     source={countyImages.zastava}
-                    className="w-32 h-16 m-2"
+                    className="w-32 h-16 mb-8"
                   />
                 </>
               ) : (
