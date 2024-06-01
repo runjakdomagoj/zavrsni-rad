@@ -10,10 +10,10 @@ const TitleButton = ({
 }) => {
   return (
     <TouchableOpacity
-      className="bg-blue-700 p-6 rounded-lg m-4 shadow-lg w-11/12 h-64 items-center shadow"
+      className="bg-blue-700 rounded-lg m-4 shadow-lg w-full h-5/6 justify-center items-center"
       onPress={() => navigation.navigate(navigationTitle)}
     >
-      <Text className="text-white text-2xl font-bold text-center">
+      <Text className="text-white text-3xl font-bold text-center absolute top-10">
         {buttonTitle}
       </Text>
       <Image className={imageStyle} source={imageTitle} />

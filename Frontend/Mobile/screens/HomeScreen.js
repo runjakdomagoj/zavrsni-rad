@@ -8,8 +8,27 @@ import Swiper from "react-native-swiper";
 const HomeScreen = ({ navigation }) => {
   return (
     <View className="bg-white flex-1 p-4">
-      <Text className="text-3xl font-bold ml-4 mb-10">Dobro došli!</Text>
-      <Swiper loop={false}>
+      <Text className="text-4xl font-bold ml-4 mb-10">Dobro došli!</Text>
+      <Swiper
+        loop={false}
+        showsPagination={true}
+        dotStyle={{
+          backgroundColor: "rgba(0,0,0,.2)",
+          width: 8,
+          height: 8,
+          borderRadius: 4,
+          margin: 3,
+        }}
+        activeDotStyle={{
+          backgroundColor: "#2E3551",
+          width: 8,
+          height: 8,
+          borderRadius: 4,
+          margin: 3,
+        }}
+        paginationStyle={{ bottom: 10 }}
+        scrollEnabled={true}
+      >
         <View className="items-center">
           <TitleButton
             buttonTitle="Opći podatci"
@@ -25,7 +44,7 @@ const HomeScreen = ({ navigation }) => {
             navigationTitle="Podaci o županijama"
             navigation={navigation}
             imageTitle={croatiaOutline}
-            imageStyle="w-32 h-36 m-4"
+            imageStyle="w-64 h-64 m-4"
           />
         </View>
       </Swiper>
