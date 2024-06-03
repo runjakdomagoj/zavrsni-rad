@@ -75,7 +75,9 @@ const CountyScreen = ({ route }) => {
           <>
             <View className="justify-center items-center">
               <Text className="text-2xl font-bold mb-8">
-                {countyData.countyName} županija
+                {countyData.countyName === "Grad Zagreb"
+                  ? countyData.countyName
+                  : `${countyData.countyName} županija`}
               </Text>
               {countyImages ? (
                 <>
