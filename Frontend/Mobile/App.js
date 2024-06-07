@@ -1,30 +1,53 @@
 import React from "react";
+import { Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import MapScreen from "./screens/MapScreen";
 import CountyScreen from "./screens/CountyScreen";
-import HomeScreen from "./screens/HomeScreen";
 import CountryScreen from "./screens/CountryScreen";
+import IntroScreen from "./screens/IntroScreen";
+import HistoryScreen from "./screens/HistoryScreen";
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Početni zaslon">
+      <Stack.Navigator initialRouteName="Uvodni zaslon">
         <Stack.Screen
-          name="Početni zaslon"
-          component={HomeScreen}
+          name="Uvodni zaslon"
+          component={IntroScreen}
           options={{ headerTitle: "", headerShadowVisible: false }}
+        />
+        <Stack.Screen
+          name="Povijest Hrvatske"
+          component={HistoryScreen}
+          options={({ navigation }) => ({
+            headerBackTitle: "Natrag",
+            headerTitle: "",
+            headerShadowVisible: false,
+            headerRight: () => (
+              <Button
+                onPress={() => navigation.navigate("Podaci o državi")}
+                title="Idi dalje"
+              />
+            ),
+          })}
         />
         <Stack.Screen
           name="Podaci o državi"
           component={CountryScreen}
-          options={{
+          options={({ navigation }) => ({
             headerBackTitle: "Natrag",
             headerTitle: "",
             headerShadowVisible: false,
-          }}
+            headerRight: () => (
+              <Button
+                onPress={() => navigation.navigate("Podaci o županijama")}
+                title="Idi dalje"
+              />
+            ),
+          })}
         />
         <Stack.Screen
           name="Podaci o županijama"

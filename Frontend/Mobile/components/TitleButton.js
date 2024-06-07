@@ -1,22 +1,15 @@
 import React from "react";
-import { TouchableOpacity, Text, Image } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 
-const TitleButton = ({
-  buttonTitle,
-  navigationTitle,
-  navigation,
-  imageTitle,
-  imageStyle,
-}) => {
+const TitleButton = ({ buttonTitle, navigationTitle, navigation }) => {
   return (
     <TouchableOpacity
-      className="bg-blue-700 rounded-lg m-4 shadow-lg w-full h-5/6 justify-center items-center"
+      className="bg-blue-700 p-6 rounded-lg m-4 shadow-lg w-11/12"
       onPress={() => navigation.navigate(navigationTitle)}
     >
-      <Text className="text-white text-3xl font-bold text-center absolute top-10">
+      <Text className="text-white text-2xl font-bold text-center">
         {buttonTitle}
       </Text>
-      <Image className={imageStyle} source={imageTitle} />
     </TouchableOpacity>
   );
 };

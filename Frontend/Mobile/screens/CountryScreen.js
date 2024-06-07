@@ -28,7 +28,6 @@ const CountryScreen = () => {
     { title: "Površina", textKey: "area" },
     { title: "Valuta", textKey: "currency" },
     { title: "O državi", textKey: "countryDescription" },
-    { title: "Povijest", textKey: "history" },
     { title: "Politički ustroj", textKey: "politicalSystem" },
     { title: "Državni simboli", textKey: "nationalSymbols" },
     { title: "Jezik", textKey: "language" },
