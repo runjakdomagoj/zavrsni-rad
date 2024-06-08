@@ -14,7 +14,7 @@ const CountryScreen = () => {
       try {
         const data = await fetchData();
         const country = data[1];
-        setCountryData(country);
+        setCountryData(country[0]);
       } catch (error) {
         console.error("Error fetching country data: ", error);
       }
@@ -42,7 +42,7 @@ const CountryScreen = () => {
           <>
             <View className="justify-center items-center">
               <Text className="text-2xl font-bold mb-8">
-                {countryData[0].countryName}
+                {countryData.countryName}
               </Text>
               <Image source={croatiaCrest} className="w-24 h-32 mb-8" />
               <Image source={croatiaFlag} className="w-32 h-16 mb-8" />
@@ -54,20 +54,20 @@ const CountryScreen = () => {
                 text={
                   item.textKey === "area" ||
                   item.textKey === "populationDensity"
-                    ? `${countryData[0][item.textKey]} km²`
-                    : countryData[0][item.textKey]
+                    ? `${countryData[item.textKey]} km²`
+                    : countryData[item.textKey]
                 }
               />
             ))}
 
             <Graph
               data={{
-                labels: countryData[0].populationData.map(({ year }) =>
+                labels: countryData.populationData.map(({ year }) =>
                   year.toString()
                 ),
                 datasets: [
                   {
-                    data: countryData[0].populationData.map(
+                    data: countryData.populationData.map(
                       ({ population }) => population
                     ),
                   },

@@ -1,35 +1,65 @@
 import React, { useEffect, useState } from "react";
 import { View, ScrollView, Text, ActivityIndicator } from "react-native";
 import { fetchData } from "../api/api";
+import TextBox from "../components/TextBox";
 
 const HistoryScreen = ({ navigation }) => {
-  const [countryData, setCountryData] = useState(null);
+  const [historyData, setHistoryData] = useState(null);
 
   useEffect(() => {
-    const fetchCountryData = async () => {
+    const fetchHistoryData = async () => {
       try {
         const data = await fetchData();
-        const country = data[1];
-        setCountryData(country);
+        const history = data[3];
+        setHistoryData(history[0]);
       } catch (error) {
-        console.error("Error fetching country data: ", error);
+        console.error("Error fetching history data: ", error);
       }
     };
 
-    fetchCountryData();
+    fetchHistoryData();
   }, []);
 
+  const textData = [
+    { title: "Kameno doba", textKey: "stoneAge" },
+    { title: "Metalno doba", textKey: "metalAge" },
+    {
+      title: "Doba Grka, Ilira i Rimljana",
+      textKey: "greekIllyrianRomanPeriod",
+    },
+    { title: "Dolazak Hrvata", textKey: "arrivalOfCroats" },
+    { title: "Hrvatsko kraljevstvo", textKey: "croatianKingdom" },
+    { title: "Hrvatsko-ugarska unija", textKey: "croatianHungarianUnion" },
+    { title: "Ratovi s Osmanlijama", textKey: "ottomanWars" },
+    { title: "Habsburška Monarhija", textKey: "habsburgMonarchy" },
+    { title: "Oslobađanje od Osmanlija", textKey: "liberationFromOttomans" },
+    { title: "Hrvatski narodni preporod", textKey: "croatianNationalRevival" },
+    {
+      title: "Hrvatsko-ugarska nagodba",
+      textKey: "croatianHungarianSettlement",
+    },
+    { title: "Prva Jugoslavija", textKey: "firstYugoslavia" },
+    {
+      title: "Nezavisna Država Hrvatska",
+      textKey: "independentStateOfCroatia",
+    },
+    { title: "SFR Jugoslavija", textKey: "sfrYugoslavia" },
+    { title: "Neovisna Hrvatska", textKey: "independentCroatia" },
+  ];
+
   return (
-    <ScrollView className="bg-white flex-1 p-4">
+    <ScrollView>
       <View className="bg-white flex-1 p-4">
-        {countryData ? (
+        {historyData ? (
           <>
-            <Text className="text-2xl font-bold mb-4">
-              Hrvatska Povijest
-            </Text>
-            <Text className="text-base leading-6">
-              {countryData[0].history}
-            </Text>
+            <Text className="text-2xl font-bold mb-4">Povijest Hrvatske</Text>
+            {textData.map((item, index) => (
+              <TextBox
+                key={index}
+                title={item.title}
+                text={historyData[item.textKey]}
+              />
+            ))}
           </>
         ) : (
           <ActivityIndicator size="large" color="black" />
