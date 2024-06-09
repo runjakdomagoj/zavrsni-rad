@@ -15,9 +15,9 @@ const TextBox = ({ title, text }) => {
         <Text className="text-xl font-bold">{title}</Text>
         <TouchableOpacity onPress={toggleText} className="ml-2">
           {showText ? (
-            <ChevronUpIcon className="w-5 h-5 text-black" />
+            <ChevronUpIcon color="#00b0d9" className="w-5 h-5 text-black" />
           ) : (
-            <ChevronDownIcon className="w-5 h-5 text-black" />
+            <ChevronDownIcon color="#00b0d9" className="w-5 h-5 text-black" />
           )}
         </TouchableOpacity>
       </View>

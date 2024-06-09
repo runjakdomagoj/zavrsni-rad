@@ -7,6 +7,7 @@ import CountyScreen from "./screens/CountyScreen";
 import CountryScreen from "./screens/CountryScreen";
 import IntroScreen from "./screens/IntroScreen";
 import HistoryScreen from "./screens/HistoryScreen";
+import CityScreen from "./screens/CityScreen"; 
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,15 @@ const App = () => {
         <Stack.Screen
           name="Županija"
           component={CountyScreen}
+          options={{
+            headerBackTitle: "Natrag",
+            headerTitle: "",
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="Grad"
+          component={CityScreen}
           options={{
             headerBackTitle: "Natrag",
             headerTitle: "",

@@ -41,7 +41,7 @@ const CountryScreen = () => {
         {countryData ? (
           <>
             <View className="justify-center items-center">
-              <Text className="text-2xl font-bold mb-8">
+              <Text className="text-3xl font-bold mb-8">
                 {countryData.countryName}
               </Text>
               <Image source={croatiaCrest} className="w-24 h-32 mb-8" />
