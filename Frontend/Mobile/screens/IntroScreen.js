@@ -1,5 +1,5 @@
 import React from "react";
-import { View} from "react-native";
+import { View } from "react-native";
 import TitleButton from "../components/TitleButton";
 import { LinearGradient } from "expo-linear-gradient";
 
