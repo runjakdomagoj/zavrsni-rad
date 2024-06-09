@@ -1,8 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, ScrollView, ActivityIndicator } from "react-native";
+import { View, Text, ScrollView, ActivityIndicator, Image } from "react-native";
 import { fetchData } from "../api/api";
 import TextBox from "../components/TextBox";
 import Graph from "../components/Graph";
+import images from "../assets/images/Gradovi/images";
+
+// Function for removing diacritics and making the cityName compatible with image names
+const removeDiacritics = (str) => {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .replace(/š/g, "s")
+    .replace(/Š/g, "S")
+    .replace(/č/g, "c")
+    .replace(/Č/g, "C")
+    .replace(/ć/g, "c")
+    .replace(/Ć/g, "C")
+    .replace(/ž/g, "z")
+    .replace(/Ž/g, "Z")
+    .replace(/dž/g, "dz")
+    .replace(/Dž/g, "Dz");
+};
 
 const CityScreen = ({ route }) => {
   const [cityData, setCityData] = useState(null);
@@ -25,6 +45,22 @@ const CityScreen = ({ route }) => {
     fetchCityData();
   }, [cityName]);
 
+  // Makes cityName and image name compatible with each other
+  const normalizedcityName = removeDiacritics(
+    cityName.replace(/\s+/g, "_").replace(/-/g, "_").toLowerCase()
+  );
+
+  // Finds matching key in the images object
+  const countyImagesKey = Object.keys(images).find((key) => {
+    const normalizedKey = removeDiacritics(
+      key.replace(/^\d+_/, "").toLowerCase()
+    );
+    return normalizedKey === normalizedcityName;
+  });
+
+  // If key is found, gets the images back, otherwise null
+  const countyImages = countyImagesKey ? images[countyImagesKey] : null;
+
   const textData = [
     { title: "Županija", textKey: "county" },
     { title: "Površina", textKey: "area" },
@@ -44,6 +80,24 @@ const CityScreen = ({ route }) => {
               <Text className="text-2xl font-bold mb-8">
                 {cityData.cityName}
               </Text>
+              {countyImages ? (
+                <>
+                  <Image
+                    source={countyImages.grb}
+                    className="w-24 h-32 mb-8"
+                    resizeMode="contain"
+                  />
+                  <Image
+                    source={countyImages.zastava}
+                    className="w-32 h-16 mb-8"
+                    resizeMode="cover"
+                  />
+                </>
+              ) : (
+                <Text className="text-base text-center">
+                  Nema dostupnih slika za ovu županiju.
+                </Text>
+              )}
             </View>
             {textData.map((item, index) => (
               <TextBox
