@@ -81,10 +81,15 @@ const CountyScreen = ({ route }) => {
               </Text>
               {countyImages ? (
                 <>
-                  <Image source={countyImages.grb} className="w-24 h-32 mb-8" />
+                  <Image
+                    source={countyImages.grb}
+                    className="w-24 h-32 mb-8"
+                    resizeMode="contain"
+                  />
                   <Image
                     source={countyImages.zastava}
                     className="w-32 h-16 mb-8"
+                    resizeMode="cover"
                   />
                 </>
               ) : (

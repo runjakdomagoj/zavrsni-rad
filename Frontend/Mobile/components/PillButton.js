@@ -9,7 +9,13 @@ const PillButton = ({ active, onPress, text }) => {
       }`}
       onPress={onPress}
     >
-      <Text className="text-xl font-bold text-white">{text}</Text>
+      <Text
+        className={`text-xl font-bold text-white ${
+          active ? "no-underline" : "line-through"
+        }`}
+      >
+        {text}
+      </Text>
     </TouchableOpacity>
   );
 };

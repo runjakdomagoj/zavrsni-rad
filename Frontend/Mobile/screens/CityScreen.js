@@ -53,6 +53,8 @@ const CityScreen = ({ route }) => {
                   item.textKey === "area" ||
                   item.textKey === "populationDensity"
                     ? `${cityData[item.textKey]} km²`
+                    : item.textKey === "callNumber"
+                    ? `+${cityData[item.textKey]}`
                     : cityData[item.textKey]
                 }
               />

@@ -52,7 +52,7 @@ const HistoryScreen = ({ navigation }) => {
       <View className="bg-white flex-1 p-4">
         {historyData ? (
           <>
-            <Text className="text-2xl font-bold mb-4">Povijest Hrvatske</Text>
+            <Text className="text-3xl font-bold mb-4 text-center">Povijest Hrvatske</Text>
             {textData.map((item, index) => (
               <TextBox
                 key={index}

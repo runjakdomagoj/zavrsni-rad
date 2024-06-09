@@ -44,8 +44,16 @@ const CountryScreen = () => {
               <Text className="text-3xl font-bold mb-8">
                 {countryData.countryName}
               </Text>
-              <Image source={croatiaCrest} className="w-24 h-32 mb-8" />
-              <Image source={croatiaFlag} className="w-32 h-16 mb-8" />
+              <Image
+                source={croatiaCrest}
+                className="w-24 h-32 mb-8"
+                resizeMode="contain"
+              />
+              <Image
+                source={croatiaFlag}
+                className="w-32 h-16 mb-8"
+                resizeMode="cover"
+              />
             </View>
             {textData.map((item, index) => (
               <TextBox

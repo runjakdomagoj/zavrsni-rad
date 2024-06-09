@@ -1,10 +1,9 @@
 import React, { useState, forwardRef, useImperativeHandle } from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, Button, StyleSheet } from "react-native";
 import MapView, { Geojson, Marker, Callout } from "react-native-maps";
 import hrGeojson from "../assets/geojson/hr.json";
 import pointInPolygon from "@turf/boolean-point-in-polygon";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { MaterialIcons } from "@expo/vector-icons";
 
 const Map = forwardRef(({ onPress, cities, showCities, onCityPress }, ref) => {
   const [region, setRegion] = useState({
@@ -75,12 +74,9 @@ const Map = forwardRef(({ onPress, cities, showCities, onCityPress }, ref) => {
               />
               <Callout tooltip>
                 <View className="w-40 p-2 bg-white text-center rounded shadow-2xl items-center">
-                  <TouchableOpacity className="absolute top-2 right-2 bg-lightGreen">
-                    <MaterialIcons name="close" size={24} color="black" />
-                  </TouchableOpacity>
                   <Text className="text-base font-bold">{city.cityName}</Text>
                   <Button
-                    color="#66f1a0"
+                    color="#00b0d9"
                     title="Detaljnije"
                     onPress={() => onCityPress(city.cityName)}
                   />
