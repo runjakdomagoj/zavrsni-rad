@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, ScrollView, Text, ActivityIndicator } from "react-native";
 import { fetchData } from "../api/api";
 import TextBox from "../components/TextBox";
+import PageButton from "../components/PageButton";
 
 const HistoryScreen = ({ navigation }) => {
   const [historyData, setHistoryData] = useState(null);
@@ -66,6 +67,18 @@ const HistoryScreen = ({ navigation }) => {
         ) : (
           <ActivityIndicator size="large" color="black" />
         )}
+        <View className="flex-row overflow-hidden">
+          <PageButton
+            buttonTitle="Idi natrag"
+            navigationTitle="Početni zaslon"
+            navigation={navigation}
+          />
+          <PageButton
+            buttonTitle="Idi dalje"
+            navigationTitle="Podaci o državi"
+            navigation={navigation}
+          />
+        </View>
       </View>
     </ScrollView>
   );

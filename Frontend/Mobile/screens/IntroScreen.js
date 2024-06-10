@@ -1,17 +1,19 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import TitleButton from "../components/TitleButton";
 import { LinearGradient } from "expo-linear-gradient";
+import Logo from "../assets/images/Logo/logo.png";
 
 const IntroScreen = ({ navigation }) => {
   return (
-    <View className="flex-1 justify-center items-center">
+    <View>
       <LinearGradient
         colors={["#66f1a0", "#00b0d9"]}
         className="w-full h-full justify-center items-center"
       >
+        <Image source={Logo} className="w-9/12 h-4/6" resizeMode="contain" />
         <TitleButton
-          buttonTitle="Započni put kroz Hrvatsku"
+          buttonTitle="Započni!"
           navigationTitle="Povijest Hrvatske"
           navigation={navigation}
         />

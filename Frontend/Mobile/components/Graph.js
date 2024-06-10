@@ -38,7 +38,6 @@ const Graph = ({ data }) => {
           propsForDots: {
             r: "4",
             strokeWidth: "1",
-            stroke: "#2E3551",
           },
         }}
         bezier
