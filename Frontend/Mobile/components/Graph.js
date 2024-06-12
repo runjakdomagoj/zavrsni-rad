@@ -20,7 +20,7 @@ const Graph = ({ data }) => {
 
   return (
     <View>
-      <Text className="text-xl font-bold mb-1 p-4">Populacija</Text>
+      <Text className="text-xl text-lightBlue font-bold mb-1 p-4">Populacija</Text>
       <LineChart
         data={filteredData}
         width={Dimensions.get("window").width - 42}

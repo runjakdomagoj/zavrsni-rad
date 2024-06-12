@@ -85,7 +85,7 @@ const CountryScreen = ({ navigation }) => {
             />
           </>
         ) : (
-          <ActivityIndicator size="large" color="black" />
+          <ActivityIndicator size="large" color="#00b0d9" />
         )}
         <View className="flex-row overflow-hidden">
           <PageButton

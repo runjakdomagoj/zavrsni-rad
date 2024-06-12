@@ -129,7 +129,7 @@ const CityScreen = ({ route }) => {
             />
           </>
         ) : (
-          <ActivityIndicator size="large" color="black" />
+          <ActivityIndicator size="large" color="#00b0d9" />
         )}
       </View>
     </ScrollView>

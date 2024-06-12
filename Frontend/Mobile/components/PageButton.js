@@ -5,7 +5,7 @@ const PageButton = ({ buttonTitle, navigationTitle, navigation }) => {
   return (
     <View className="flex-1 items-center">
       <TouchableOpacity
-        className="bg-white p-3 rounded-lg m-4 shadow-lg w-40 bg-lightGreen"
+        className="p-3 rounded-lg m-4 shadow-lg w-40 bg-lightGreen"
         onPress={() => navigation.navigate(navigationTitle)}
       >
         <Text className="text-white text-lg font-bold text-center">

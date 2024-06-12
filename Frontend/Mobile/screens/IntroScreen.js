@@ -9,9 +9,9 @@ const IntroScreen = ({ navigation }) => {
     <View>
       <LinearGradient
         colors={["#66f1a0", "#00b0d9"]}
-        className="w-full h-full justify-center items-center"
+        className="w-full h-full items-center"
       >
-        <Image source={Logo} className="w-9/12 h-4/6" resizeMode="contain" />
+        <Image source={Logo} className="w-11/12 h-4/6" resizeMode="contain" />
         <TitleButton
           buttonTitle="Započni!"
           navigationTitle="Povijest Hrvatske"
