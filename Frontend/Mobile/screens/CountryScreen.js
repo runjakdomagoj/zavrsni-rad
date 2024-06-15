@@ -5,7 +5,6 @@ import croatiaCrest from "../assets/images/Drzava/hrvatska_grb.png";
 import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png";
 import Graph from "../components/Graph";
 import TextBox from "../components/TextBox";
-import PageButton from "../components/PageButton";
 
 const CountryScreen = ({ navigation }) => {
   const [countryData, setCountryData] = useState(null);
@@ -87,18 +86,6 @@ const CountryScreen = ({ navigation }) => {
         ) : (
           <ActivityIndicator size="large" color="#00b0d9" />
         )}
-        <View className="flex-row overflow-hidden">
-          <PageButton
-            buttonTitle="Idi natrag"
-            navigationTitle="Povijest Hrvatske"
-            navigation={navigation}
-          />
-          <PageButton
-            buttonTitle="Idi dalje"
-            navigationTitle="Interaktivna karta"
-            navigation={navigation}
-          />
-        </View>
       </View>
     </ScrollView>
   );

@@ -8,6 +8,7 @@ import CountryScreen from "../screens/CountryScreen";
 import IntroScreen from "../screens/IntroScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 import CityScreen from "../screens/CityScreen";
+import { Button } from "react-native";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -37,7 +38,6 @@ const DrawerNavigator = () => (
       name="Početni zaslon"
       component={IntroScreen}
       options={{
-        headerBackTitle: "Natrag",
         headerTitle: "",
         headerShadowVisible: false,
       }}
@@ -45,26 +45,37 @@ const DrawerNavigator = () => (
     <Drawer.Screen
       name="Povijest Hrvatske"
       component={HistoryScreen}
-      options={{
-        headerBackTitle: "Natrag",
+      options={({ navigation }) => ({
         headerTitle: "",
         headerShadowVisible: false,
-      }}
+        headerRight: () => (
+          <Button
+            onPress={() => navigation.navigate("Podaci o državi")}
+            title="Dalje"
+            color="#fff"
+          />
+        ),
+      })}
     />
     <Drawer.Screen
       name="Podaci o državi"
       component={CountryScreen}
-      options={{
-        headerBackTitle: "Natrag",
+      options={({ navigation }) => ({
         headerTitle: "",
         headerShadowVisible: false,
-      }}
+        headerRight: () => (
+          <Button
+            onPress={() => navigation.navigate("Interaktivna karta")}
+            title="Dalje"
+            color="#fff"
+          />
+        ),
+      })}
     />
     <Drawer.Screen
       name="Interaktivna karta"
       component={MapScreen}
       options={{
-        headerBackTitle: "Natrag",
         headerTitle: "",
         headerShadowVisible: false,
       }}
