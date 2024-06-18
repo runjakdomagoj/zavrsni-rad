@@ -51,7 +51,7 @@ const CountryScreen = ({ navigation }) => {
               />
               <Image
                 source={croatiaFlag}
-                className="w-32 h-16 mb-8"
+                className="w-3/5 h-24 mb-8"
                 resizeMode="cover"
               />
             </View>

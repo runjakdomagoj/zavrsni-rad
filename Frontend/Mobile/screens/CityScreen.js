@@ -87,11 +87,6 @@ const CityScreen = ({ route }) => {
                     className="w-24 h-32 mb-8"
                     resizeMode="contain"
                   />
-                  <Image
-                    source={countyImages.zastava}
-                    className="w-32 h-16 mb-8"
-                    resizeMode="cover"
-                  />
                 </>
               ) : (
                 <Text className="text-base text-center">
