@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, ActivityIndicator, Image, ScrollView } from "react-native";
 import { fetchData } from "../api/api";
-import croatiaCrest from "../assets/images/Drzava/hrvatska_grb.png";
+import croatiaCoatOfArms from "../assets/images/Drzava/hrvatska_grb.png";
 import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png";
 import Graph from "../components/Graph";
 import TextBox from "../components/TextBox";
@@ -45,7 +45,7 @@ const CountryScreen = ({ navigation }) => {
                 {countryData.countryName}
               </Text>
               <Image
-                source={croatiaCrest}
+                source={croatiaCoatOfArms}
                 className="w-24 h-32 mb-8"
                 resizeMode="contain"
               />

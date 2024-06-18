@@ -59,6 +59,60 @@ const images = {
   "19_Cakovec": {
     grb: require("./19_Cakovec/grb.png"),
   },
+  "20_Velika_Gorica": {
+    grb: require("./20_Velika_Gorica/grb.png"),
+  },
+  "21_Pula": {
+    grb: require("./21_Pula/grb.png"),
+  },
+  "22_Vinkovci": {
+    grb: require("./22_Vinkovci/grb.png"),
+  },
+  "23_Dakovo": {
+    grb: require("./23_Dakovo/grb.png"),
+  },
+  "24_Sinj": {
+    grb: require("./24_Sinj/grb.png"),
+  },
+  "25_Kutina": {
+    grb: require("./25_Kutina/grb.png"),
+  },
+  "26_Krizevci": {
+    grb: require("./26_Krizevci/grb.png"),
+  },
+  "27_Nasice": {
+    grb: require("./27_Nasice/grb.png"),
+  },
+  "28_Zupanja": {
+    grb: require("./28_Zupanja/grb.png"),
+  },
+  "29_Daruvar": {
+    grb: require("./29_Daruvar/grb.png"),
+  },
+  "30_Nova_Gradiska": {
+    grb: require("./30_Nova_Gradiska/grb.png"),
+  },
+  "31_Knin": {
+    grb: require("./31_Knin/grb.png"),
+  },
+  "32_Metkovic": {
+    grb: require("./32_Metkovic/grb.png"),
+  },
+  "33_Imotski": {
+    grb: require("./33_Imotski/grb.png"),
+  },
+  "34_Ogulin": {
+    grb: require("./34_Ogulin/grb.png"),
+  },
+  "35_Delnice": {
+    grb: require("./35_Delnice/grb.png"),
+  },
+  "36_Makarska": {
+    grb: require("./36_Makarska/grb.png"),
+  },
+  "37_Slatina": {
+    grb: require("./37_Slatina/grb.png"),
+  },
 };
 
 export default images;
