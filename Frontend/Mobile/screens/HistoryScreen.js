@@ -21,30 +21,51 @@ const HistoryScreen = ({ navigation }) => {
   }, []);
 
   const textData = [
-    { title: "Kameno doba", textKey: "stoneAge" },
-    { title: "Metalno doba", textKey: "metalAge" },
     {
-      title: "Doba Grka, Ilira i Rimljana",
+      title: "Kameno doba (1500000 pr. Kr. - 3000 pr. Kr.)",
+      textKey: "stoneAge",
+    },
+    { title: "Metalno doba (3000 pr. Kr. - 100 pr.Kr.)", textKey: "metalAge" },
+    {
+      title: "Doba Grka, Ilira i Rimljana  (800 pr.Kr. - 476.)",
       textKey: "greekIllyrianRomanPeriod",
     },
-    { title: "Dolazak Hrvata", textKey: "arrivalOfCroats" },
-    { title: "Hrvatsko kraljevstvo", textKey: "croatianKingdom" },
-    { title: "Hrvatsko-ugarska unija", textKey: "croatianHungarianUnion" },
-    { title: "Ratovi s Osmanlijama", textKey: "ottomanWars" },
-    { title: "Habsburška Monarhija", textKey: "habsburgMonarchy" },
-    { title: "Oslobađanje od Osmanlija", textKey: "liberationFromOttomans" },
-    { title: "Hrvatski narodni preporod", textKey: "croatianNationalRevival" },
+    { title: "Dolazak Hrvata (7. st.)", textKey: "arrivalOfCroats" },
     {
-      title: "Hrvatsko-ugarska nagodba",
+      title: "Hrvatsko kraljevstvo (925. - 1102.)",
+      textKey: "croatianKingdom",
+    },
+    {
+      title: "Hrvatsko-ugarska unija (1102. - 1526.)",
+      textKey: "croatianHungarianUnion",
+    },
+    { title: "Ratovi s Osmanlijama (15. st. - 1699.)", textKey: "ottomanWars" },
+    {
+      title: "Habsburška Monarhija (1527. - 1918.)",
+      textKey: "habsburgMonarchy",
+    },
+    {
+      title: "Oslobađanje od Osmanlija (1699. - 1718.)",
+      textKey: "liberationFromOttomans",
+    },
+    {
+      title: "Hrvatski narodni preporod (1835. - 1848.)",
+      textKey: "croatianNationalRevival",
+    },
+    {
+      title: "Hrvatsko-ugarska nagodba (1868. - 1918.)",
       textKey: "croatianHungarianSettlement",
     },
-    { title: "Prva Jugoslavija", textKey: "firstYugoslavia" },
+    { title: "Prva Jugoslavija (1918. - 1941.)", textKey: "firstYugoslavia" },
     {
-      title: "Nezavisna Država Hrvatska",
+      title: "Nezavisna Država Hrvatska (1941. - 1945.)",
       textKey: "independentStateOfCroatia",
     },
-    { title: "SFR Jugoslavija", textKey: "sfrYugoslavia" },
-    { title: "Neovisna Hrvatska", textKey: "independentCroatia" },
+    { title: "SFR Jugoslavija (1945. - 1991.)", textKey: "sfrYugoslavia" },
+    {
+      title: "Neovisna Hrvatska (1991. - danas)",
+      textKey: "independentCroatia",
+    },
   ];
 
   return (

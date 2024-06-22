@@ -113,6 +113,15 @@ const images = {
   "37_Slatina": {
     grb: require("./37_Slatina/grb.png"),
   },
+  "38_Zapresic": {
+    grb: require("./38_Zapresic/grb.png"),
+  },
+  "39_Omis": {
+    grb: require("./39_Omis/grb.png"),
+  },
+  "40_Petrinja": {
+    grb: require("./40_Petrinja/grb.png"),
+  },
 };
 
 export default images;
