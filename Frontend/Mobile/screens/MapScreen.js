@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import Map from "../components/Map";
 import { MaterialIcons } from "@expo/vector-icons";
 import { fetchData } from "../api/api";
