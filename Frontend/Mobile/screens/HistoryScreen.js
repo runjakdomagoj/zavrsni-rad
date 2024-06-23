@@ -3,7 +3,7 @@ import { View, ScrollView, Text, ActivityIndicator } from "react-native";
 import { fetchData } from "../api/api";
 import TextBox from "../components/TextBox";
 
-const HistoryScreen = ({ navigation }) => {
+const HistoryScreen = () => {
   const [historyData, setHistoryData] = useState(null);
 
   useEffect(() => {

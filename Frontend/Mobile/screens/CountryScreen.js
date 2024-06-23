@@ -6,7 +6,7 @@ import croatiaFlag from "../assets/images/Drzava/hrvatska_zastava.png";
 import Graph from "../components/Graph";
 import TextBox from "../components/TextBox";
 
-const CountryScreen = ({ navigation }) => {
+const CountryScreen = () => {
   const [countryData, setCountryData] = useState(null);
 
   useEffect(() => {

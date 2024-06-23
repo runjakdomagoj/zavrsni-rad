@@ -90,7 +90,7 @@ const CityScreen = ({ route }) => {
                 </>
               ) : (
                 <Text className="text-base text-center">
-                  Nema dostupnih slika za ovu županiju.
+                  Nema dostupnih slika za ovaj grad.
                 </Text>
               )}
             </View>
